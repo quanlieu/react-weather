@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import locationSearchApi from './apis/location-search';
+import locationDetailApi from './apis/location-detail';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    locationSearchApi.searchLocationWoeIdByName({ name: 'chi' });
+    locationDetailApi.getWeatherDataByWoeId({ woeId: '1252431' });
+  }, [])
   return (
     <div className="App">
       <header className="App-header">
