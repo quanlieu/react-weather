@@ -1,5 +1,5 @@
 const locationSearchApi = {
-  searchLocationWoeIdByName: async ({ name }) => {
+  searchLocationsByName: async ({ name }) => {
     try {
       const response = await fetch(`http://localhost:4000/location/search/?query=${name}`, {
         method: 'GET',
@@ -7,7 +7,8 @@ const locationSearchApi = {
           'Content-Type': 'application/json',
         },
       })
-      console.log(response)
+      const locations = await response.json();
+      return locations
     } catch (error) {
       
     }
