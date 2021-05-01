@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import _get from 'lodash/get'
 import weathersApi from './weather-api'
 
-const initialState = {
+export const initialState = {
   locations: [],
   locationsFetchStatus: 'idle',
   locationsFetchId: 0,
@@ -11,7 +11,7 @@ const initialState = {
 };
 
 export const searchLocationsByName = createAsyncThunk(
-  'weather/fetchLocations',
+  'weather/searchLocationsByName',
   async (name, thunkAPI) => {
     try {
       const state = thunkAPI.getState()
@@ -28,6 +28,7 @@ export const searchLocationsByName = createAsyncThunk(
       }));
     } catch (error) {
       thunkAPI.rejectWithValue('Error');
+      throw error;
     }
   }
 );
@@ -48,11 +49,12 @@ export const fetchWeatherData = createAsyncThunk(
       });
     } catch (error) {
       thunkAPI.rejectWithValue('Error');
+      throw error;
     }
   }
 );
 
-export const locationsSlice = createSlice({
+export const weatherSlice = createSlice({
   name: 'weather',
   initialState,
   reducers: {
@@ -88,4 +90,4 @@ export const selectIsFetchingWeatherData = (state) => {
   return weatherData.length === 0 && weatherDataFetchStatus === 'loading';
 };
 
-export default locationsSlice.reducer;
+export default weatherSlice.reducer;

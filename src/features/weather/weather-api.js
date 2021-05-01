@@ -1,7 +1,9 @@
+import { url } from './url'
+
 const weatherApi = {
   searchLocationsByName: async ({ name }) => {
     try {
-      const response = await fetch(`http://localhost:4000/location/search/?query=${name}`, {
+      const response = await fetch(`${url.LOCATION_SEARCH_QUERY}${name}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -16,7 +18,7 @@ const weatherApi = {
 
   fetchWeatherDataByWoeId: async ({ woeId }) => {
     try {
-      const response = await fetch(`http://localhost:4000/location/${woeId}/`, {
+      const response = await fetch(`${url.LOCATION}${woeId}/`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

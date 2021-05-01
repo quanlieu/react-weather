@@ -4,9 +4,9 @@ const dateHelpers = {
     return (new Date(input)).toDateString() === today.toDateString();
   },
   isTomorrow: (input) => {
-    let today = new Date();
-    today.setDate(today.getDate() + 1);
-    return (new Date(input)).toDateString() === today.toDateString();
+    let tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    return (new Date(input)).toDateString() === tomorrow.toDateString();
   }
 };
 
