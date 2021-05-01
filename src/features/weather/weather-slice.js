@@ -1,10 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import _get from 'lodash/get'
 import weathersApi from './weather-api'
 
 const initialState = {
   locations: [],
   locationsFetchStatus: 'idle',
   locationsFetchId: 0,
+  weatherData: [],
+  weatherDataFetchStatus: 'idle',
 };
 
 export const searchLocationsByName = createAsyncThunk(
@@ -29,6 +32,26 @@ export const searchLocationsByName = createAsyncThunk(
   }
 );
 
+export const fetchWeatherData = createAsyncThunk(
+  'weather/fetchWeatherData',
+  async (woeId, thunkAPI) => {
+    try {
+      const response = await weathersApi.fetchWeatherDataByWoeId({ woeId });
+      return _get(response, 'consolidated_weather', []).map(data => {
+        const id = _get(data, 'id');
+        const date = _get(data, 'applicable_date');
+        const minTemp = _get(data, 'min_temp');
+        const maxTemp = _get(data, 'max_temp');
+        return {
+          id, date, minTemp, maxTemp,
+        }
+      });
+    } catch (error) {
+      thunkAPI.rejectWithValue('Error');
+    }
+  }
+);
+
 export const locationsSlice = createSlice({
   name: 'weather',
   initialState,
@@ -39,10 +62,19 @@ export const locationsSlice = createSlice({
       .addCase(searchLocationsByName.pending, (state) => {
         state.locationsFetchId += 1;
         state.locationsFetchStatus = 'loading';
+        state.locations = [];
       })
       .addCase(searchLocationsByName.fulfilled, (state, action) => {
         state.locationsFetchStatus = 'idle';
-        state.locations = action.payload || state.locations;
+        state.locations = _get(action, 'payload', state.locations);
+      })
+      .addCase(fetchWeatherData.pending, (state) => {
+        state.weatherDataFetchStatus = 'loading';
+        state.weatherData = [];
+      })
+      .addCase(fetchWeatherData.fulfilled, (state, action) => {
+        state.weatherDataFetchStatus = 'idle';
+        state.weatherData = _get(action, 'payload');
       });
   },
 });
@@ -50,5 +82,10 @@ export const locationsSlice = createSlice({
 // Selectors
 export const selectLocations = (state) => state.weather.locations;
 export const selectLocationsFetchId = (state) => state.weather.locationsFetchId;
+export const selectWeatherData = (state) => state.weather.weatherData;
+export const selectIsFetchingWeatherData = (state) => {
+  const { weatherData, weatherDataFetchStatus } = state.weather;
+  return weatherData.length === 0 && weatherDataFetchStatus === 'loading';
+};
 
 export default locationsSlice.reducer;

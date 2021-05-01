@@ -1,15 +1,28 @@
 import { Fragment, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Row, Col, Divider } from 'antd';
+import { Row, Col, Divider, Skeleton, Typography } from 'antd';
 
-import { searchLocationsByName, selectLocations } from './weather-slice';
+import {
+  searchLocationsByName,
+  fetchWeatherData,
+  selectLocations,
+  selectWeatherData,
+  selectIsFetchingWeatherData,
+} from './weather-slice';
 import { DebounceSelect } from '../../components/debounce-select/debounce-select'
+import { WeatherDetail } from './weather-detail'
 
 export const Weather = props => {
   const locations = useSelector(selectLocations);
+  const weatherData = useSelector(selectWeatherData);
+  const isFetchingWeatherData = useSelector(selectIsFetchingWeatherData);
   const dispatch = useDispatch();
   const handleSearch = useCallback(
     value => dispatch(searchLocationsByName(value)),
+    [dispatch],
+  );
+  const handleChange = useCallback(
+    location => dispatch(fetchWeatherData(location.value)),
     [dispatch],
   );
 
@@ -20,6 +33,7 @@ export const Weather = props => {
           <DebounceSelect
             placeholder="Select"
             onSearch={handleSearch}
+            onChange={handleChange}
             options={locations}
             dropdownMatchSelectWidth={false}
             style={{
@@ -29,14 +43,22 @@ export const Weather = props => {
         </Col>
       </Row>
       <Divider orientation="left" />
-      <Row justify="center" gutter={[{ xs: 8, md: 12, xl: 16}, { xs: 8, md: 12, xl: 16}]}>
-        <Col xs={12} md={8} xl={4}><div style={{backgroundColor: "lightblue"}}>Col</div></Col>
-        <Col xs={12} md={8} xl={4}><div style={{backgroundColor: "lightblue"}}>Col</div></Col>
-        <Col xs={12} md={8} xl={4}><div style={{backgroundColor: "lightblue"}}>Col</div></Col>
-        <Col xs={12} md={8} xl={4}><div style={{backgroundColor: "lightblue"}}>Col</div></Col>
-        <Col xs={12} md={8} xl={4}><div style={{backgroundColor: "lightblue"}}>Col</div></Col>
-        <Col xs={12} md={8} xl={4}><div style={{backgroundColor: "lightblue"}}>Col</div></Col>
-      </Row>
+      <Skeleton loading={isFetchingWeatherData}>
+        <Row gutter={[{ xs: 8, md: 12, xl: 16}, { xs: 8, md: 12, xl: 16}]}>
+          {!weatherData.length && (
+            <Col>
+              <Typography.Title level={3}>
+                Please select a location
+              </Typography.Title>
+            </Col>
+          )}
+          {weatherData.map(data => (
+            <Col xs={12} md={8} xl={4} key={data.id}>
+              <WeatherDetail {...data} />
+            </Col>)
+          )}
+        </Row>
+      </Skeleton>
     </Fragment>
-  )
+  );
 }
