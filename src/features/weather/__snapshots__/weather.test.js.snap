@@ -5,12 +5,8 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ant-row"
-      >
-        <div
-          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-8 ant-col-lg-6 ant-col-xl-4"
-        >
+      <div>
+        <div>
           <div>
             DebounceSelect
             <input
@@ -20,74 +16,55 @@ Object {
               data-testid="on-change"
             />
           </div>
+          <div
+            style="width: 20%; text-align: right; display: inline-block;"
+          >
+            <input
+              data-testid="switch-language"
+            />
+          </div>
         </div>
       </div>
-      <div
-        class="ant-divider ant-divider-horizontal"
-        role="separator"
-      />
-      <div
-        class="ant-row"
-        style="margin: -8px -8px -8px -8px;"
-      >
-        <div
-          class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-          style="padding: 8px 8px 8px 8px;"
-        >
+      Divider
+      <div>
+        <div>
           <div>
-            WeatherDetail
+            <div>
+              WeatherDetail
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-          style="padding: 8px 8px 8px 8px;"
-        >
           <div>
-            WeatherDetail
+            <div>
+              WeatherDetail
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-          style="padding: 8px 8px 8px 8px;"
-        >
           <div>
-            WeatherDetail
+            <div>
+              WeatherDetail
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-          style="padding: 8px 8px 8px 8px;"
-        >
           <div>
-            WeatherDetail
+            <div>
+              WeatherDetail
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-          style="padding: 8px 8px 8px 8px;"
-        >
           <div>
-            WeatherDetail
+            <div>
+              WeatherDetail
+            </div>
           </div>
-        </div>
-        <div
-          class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-          style="padding: 8px 8px 8px 8px;"
-        >
           <div>
-            WeatherDetail
+            <div>
+              WeatherDetail
+            </div>
           </div>
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ant-row"
-    >
-      <div
-        class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-8 ant-col-lg-6 ant-col-xl-4"
-      >
+    <div>
+      <div>
         <div>
           DebounceSelect
           <input
@@ -97,62 +74,47 @@ Object {
             data-testid="on-change"
           />
         </div>
+        <div
+          style="width: 20%; text-align: right; display: inline-block;"
+        >
+          <input
+            data-testid="switch-language"
+          />
+        </div>
       </div>
     </div>
-    <div
-      class="ant-divider ant-divider-horizontal"
-      role="separator"
-    />
-    <div
-      class="ant-row"
-      style="margin: -8px -8px -8px -8px;"
-    >
-      <div
-        class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-        style="padding: 8px 8px 8px 8px;"
-      >
+    Divider
+    <div>
+      <div>
         <div>
-          WeatherDetail
+          <div>
+            WeatherDetail
+          </div>
         </div>
-      </div>
-      <div
-        class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-        style="padding: 8px 8px 8px 8px;"
-      >
         <div>
-          WeatherDetail
+          <div>
+            WeatherDetail
+          </div>
         </div>
-      </div>
-      <div
-        class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-        style="padding: 8px 8px 8px 8px;"
-      >
         <div>
-          WeatherDetail
+          <div>
+            WeatherDetail
+          </div>
         </div>
-      </div>
-      <div
-        class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-        style="padding: 8px 8px 8px 8px;"
-      >
         <div>
-          WeatherDetail
+          <div>
+            WeatherDetail
+          </div>
         </div>
-      </div>
-      <div
-        class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-        style="padding: 8px 8px 8px 8px;"
-      >
         <div>
-          WeatherDetail
+          <div>
+            WeatherDetail
+          </div>
         </div>
-      </div>
-      <div
-        class="ant-col ant-col-xs-12 ant-col-md-8 ant-col-xl-4"
-        style="padding: 8px 8px 8px 8px;"
-      >
         <div>
-          WeatherDetail
+          <div>
+            WeatherDetail
+          </div>
         </div>
       </div>
     </div>
@@ -216,12 +178,8 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="ant-row"
-      >
-        <div
-          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-8 ant-col-lg-6 ant-col-xl-4"
-        >
+      <div>
+        <div>
           <div>
             DebounceSelect
             <input
@@ -231,36 +189,30 @@ Object {
               data-testid="on-change"
             />
           </div>
+          <div
+            style="width: 20%; text-align: right; display: inline-block;"
+          >
+            <input
+              data-testid="switch-language"
+            />
+          </div>
         </div>
       </div>
-      <div
-        class="ant-divider ant-divider-horizontal"
-        role="separator"
-      />
-      <div
-        class="ant-row"
-        style="margin: -8px -8px -8px -8px;"
-      >
-        <div
-          class="ant-col"
-          style="padding: 8px 8px 8px 8px;"
-        >
-          <h3
-            class="ant-typography"
-          >
-            Please select a location
-          </h3>
+      Divider
+      <div>
+        <div>
+          <div>
+            <div>
+              weatherLocationSelect
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="ant-row"
-    >
-      <div
-        class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-8 ant-col-lg-6 ant-col-xl-4"
-      >
+    <div>
+      <div>
         <div>
           DebounceSelect
           <input
@@ -270,25 +222,23 @@ Object {
             data-testid="on-change"
           />
         </div>
+        <div
+          style="width: 20%; text-align: right; display: inline-block;"
+        >
+          <input
+            data-testid="switch-language"
+          />
+        </div>
       </div>
     </div>
-    <div
-      class="ant-divider ant-divider-horizontal"
-      role="separator"
-    />
-    <div
-      class="ant-row"
-      style="margin: -8px -8px -8px -8px;"
-    >
-      <div
-        class="ant-col"
-        style="padding: 8px 8px 8px 8px;"
-      >
-        <h3
-          class="ant-typography"
-        >
-          Please select a location
-        </h3>
+    Divider
+    <div>
+      <div>
+        <div>
+          <div>
+            weatherLocationSelect
+          </div>
+        </div>
       </div>
     </div>
   </div>,

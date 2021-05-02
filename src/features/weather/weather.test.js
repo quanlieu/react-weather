@@ -1,7 +1,25 @@
 import * as reactRedux from 'react-redux';
+import i18n from 'i18next';
 import { render, screen, fireEvent } from '../../test-utils'
 import { Weather } from './weather';
 import * as weatherSlice from './weather-slice';
+
+jest.mock('react-i18next', () => ({
+  useTranslation: () => ({
+    t: v => v,
+  }),
+}))
+
+jest.mock('antd', () => ({
+  Row: ({ children }) => <div>{children}</div>,
+  Col: ({ children }) => <div>{children}</div>,
+  Divider: () => 'Divider',
+  Skeleton: ({ children }) => <div>{children}</div>,
+  Typography: {
+    Title: ({ children }) => <div>{children}</div>,
+  },
+  Switch: ({ onChange }) => <input data-testid='switch-language' onChange={onChange} />,
+}))
 
 jest.mock('../../components/debounce-select/debounce-select', () => ({
   DebounceSelect: (props) => (
@@ -79,5 +97,12 @@ describe('Weather component', () => {
     expect(dispatch).toHaveBeenCalledWith({
       type: 'ACTION',
     });
+  })
+
+  test('Should change language', () => {
+    i18n.changeLanguage = jest.fn()
+    render(<Weather />, { initialState: initialStateWithWeatherDetail });
+    fireEvent.change(screen.getByTestId('switch-language'), { target: { value: true } });
+    expect(i18n.changeLanguage).toHaveBeenCalled();
   })
 });

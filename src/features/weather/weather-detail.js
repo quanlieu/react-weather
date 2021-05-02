@@ -1,12 +1,15 @@
 import { Card, Typography } from 'antd';
+import i18n from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 import dateHelpers from '../../helpers/date-helpers'
 
 export const WeatherDetail = ({ date, minTemp, maxTemp }) => {
-  let dateString = new Intl.DateTimeFormat('en-US', { weekday: 'long' })
+  const { t } = useTranslation();
+  let dateString = new Intl.DateTimeFormat(i18n.language, { weekday: 'long' })
     .format(Date.parse(date));
   if (dateHelpers.isToday(date)) {
-    dateString = 'Today';
+    dateString = t('today');
   }
   return (
     <Card
@@ -16,8 +19,8 @@ export const WeatherDetail = ({ date, minTemp, maxTemp }) => {
         </Typography.Title>
       )}
     >
-      <p>Min: {Math.round(minTemp * 10) / 10}&deg;C</p>
-      <p>Max: {Math.round(maxTemp * 10) / 10}&deg;C</p>
+      <p>{t('min')}: {Math.round(minTemp * 10) / 10}&deg;C</p>
+      <p>{t('max')}: {Math.round(maxTemp * 10) / 10}&deg;C</p>
     </Card>
   );
 };

@@ -22,16 +22,15 @@ The client make API calls to the proxy server instead of to directly to Metawear
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.
-cover
 ### `yarn test --watchAll=false --coverage`
 
-Run code coverage. I tried to cover as much as I can. It is 94%, there are some React Hooks that I couldn't test.
+Run code coverage. I tried to cover as much as I can. It is 94.8%, there are some React Hooks and callback event that I couldn't test.
 # Some decisions made in this program
 
 - To deploying this app, we need a NodeJS host to run the proxy server. I could have find a CORS enabled service but I found that other services require API key which I rather not use.
-- The office Redux documentation strongly recommend Redux toolkit so I follow it although Redux toolkit is new to me, I had to spend time to learn it. But Redux principles are the same.
-- In my past projects, Redux related code usually put in separated folder but later we decided to move them same folder of React component. In this challenge, I decided to put all of them in the same folder.
-- I am more confident with Enzyme instead of React testing library. But ever since React Hook came, Enzyme show limitation. There are some hooks that I couldn't find a way to test them some the test coverage is only 94%.
+- The office Redux documentation strongly recommend Redux toolkit.
+- In my past projects, Redux related code are put in separated folder but later we decided to move them same folder of React component. In this challenge, I decided to put all of them in the same folder.
+- I am more confident with Enzyme instead of React testing library. But ever since React Hook had came, Enzyme show limitation so I used RTL in this challenge. There are some hooks that I couldn't find a way to test them, the test coverage is only 94%.
 
 # Room for improvement
 - I used AntD to speed up the progress. If it is not good enough, please feedback.

@@ -8,15 +8,17 @@ Object {
       <div>
         Card 
         <div>
-          Today
+          today
         </div>
         <p>
-          Min: 
+          min
+          : 
           30.9
           °C
         </p>
         <p>
-          Max: 
+          max
+          : 
           35.3
           °C
         </p>
@@ -27,15 +29,17 @@ Object {
     <div>
       Card 
       <div>
-        Today
+        today
       </div>
       <p>
-        Min: 
+        min
+        : 
         30.9
         °C
       </p>
       <p>
-        Max: 
+        max
+        : 
         35.3
         °C
       </p>
