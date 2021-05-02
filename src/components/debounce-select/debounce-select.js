@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { Select, Spin } from 'antd';
 import debounce from 'lodash/debounce';
 
-export const DebounceSelect = ({ onSearch, debounceTimeout = 1000, ...props }) => {
+export const DebounceSelect = ({ onSearch, debounceTimeout = 500, ...props }) => {
   const [fetching, setFetching] = useState(false);
   const debounceOnSearch = useMemo(() => {
     const loadOptions = async (value) => {
